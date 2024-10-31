@@ -19,7 +19,7 @@ for idata=1:length(dataname)
     % 构建数据文件路径  
     datafile = fullfile(datadir, [char(dataname(idata)), '.mat']);  
     disp(['Loading data file: ', datafile]);  
-    %load([char(datadir),char(dataname(idata))]);
+    load([char(datadir),char(dataname(idata))]);
 
     for perMising=1:length(del)
         datafolds = fullfile(datadir, [char(dataname(idata)), '_Per', num2str(del(perMising)), '.mat']);
