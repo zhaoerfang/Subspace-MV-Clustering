@@ -221,3 +221,5 @@ custom_directory_name/
   
 # Ignore virtual environments (if using virtualenv for some reason)  
 venv/  
+
+!datasets/
