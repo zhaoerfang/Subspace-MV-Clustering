@@ -5,11 +5,11 @@ addpath('measure', 'tools', 'gspbox-0.7.0');
 % dataset config
 resultdir = 'Results';
 datadir = 'datasets/';  
-dataname = {'bbcsport-4view'};
+dataname = {'bbcsport-4view', '3sources-3view', 'BDGP_4view', 'Caltech101-7_6view', 'handwritten-5view', 'NH_3view', 'ORL_3view'};
 % dataset config end
 
 % hyperparameters settings
-del = [0.3]; %
+del = [0.1, 0.3, 0.5, 0.7]; %
 lamda1 = [2e-15, 2e-13, 2e-11, 2e-9, 2e-7, 2e-5, 2e-3, 2e-1, 2e1, 2e3, 2e5, 2e7, 2e9, 2e11, 2e13, 2e15];  
 lamda2 = [2e-15, 2e-13, 2e-11, 2e-9, 2e-7, 2e-5, 2e-3, 2e-1, 2e1, 2e3, 2e5, 2e7, 2e9, 2e11, 2e13, 2e15];
 % hyperparameters settings end
