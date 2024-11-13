@@ -3,6 +3,10 @@ Xudan's postgraduate: Subspace Representation-Based Multi-View Subspace Clusteri
 
 ## Recent changes
 
+- [2024 Nov 13] 
+  - `compatible with cell and matrix` added a conditional branch to suit matrix type.
+  - `runtime log` the recording of experimental log has been updated to log each interation.
+
 - [2024 Nov 03] 
   - `separate main script and algorithm implementation` now the entry of the whole project is `main.m`, and the algorithm implementation is in `runAlgorithm.m`.
   - `run different datasets` with setting different datasets and validation ratio, the results will be saved in the relevant folder with a brief description of the which.
@@ -46,6 +50,16 @@ git push -u origin xudan_dev
 git pull origin xudan_dev  // 先拉取，再推送
 git pull origin xudan_dev  
 ``` 
+
+5. 合并分支
+
+如果`fze_dev`分支发生了变更，`xd_dev`分支想要合并变更，则使用以下命令
+```
+git checkout xd_dev
+git pull fze_dev
+git merge fze_dev
+```
+如果`merge`时遇见冲突，请联系我。
 
 ## how to use
 1. 分离程序入口和算法实现，方便代码调试和重构。
@@ -127,6 +141,21 @@ lamda1	lamda2	Fscore	Precision	Recall	nmi	AR	Entropy	ACC	Purity
 2.000000e-13	2.000000e-13	0.632328	0.585353	0.687500	0.568782	0.501987	0.975847	0.784483	0.784483
 
 ```
+
+3. runtime log
+   
+支持查看实时的超参组合结果，方法如下：
+  1. 打开`git bash`，进入仓库根目录；
+  2. 运行以下命令
+```
+tail -f Path/to/readme.md
+```
+如
+
+```
+tail -f Results/handwritten-5view/result-2024-11-13-20-51_Per0.1/readme.md
+```
+则可以实时查看更新的实验日志。
 
 ## road map
 此模块为计划列表，如算法更新计划等

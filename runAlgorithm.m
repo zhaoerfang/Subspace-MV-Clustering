@@ -1,4 +1,4 @@
-function result = runAlgorithm(datasetName, ratio, datadir, lamda1, lamda2)
+function result = runAlgorithm(datasetName, ratio, datadir, lamda1, lamda2, readmeFile)
 datafile = fullfile(datadir, [char(datasetName), '.mat']);
 disp(['Loading data file: ', datafile]);
 load(datafile);
@@ -15,6 +15,10 @@ if exist('Y', 'var')
     numview = length(X);
     X1 = cell(length(X), 1);
     index = cell(length(X), 1);
+
+    if ~iscell(folds)  
+        folds = {folds};  
+    end  
     
     for f = 1:1
         fold = folds;
@@ -204,6 +208,11 @@ if exist('Y', 'var')
                 disp(['runtime:', num2str(time)]);
                 
                 ResBest = [ResBest; lamda1(i), lamda2(j), res];
+                
+                % writing iteritive log to readme
+                fileID = fopen(readmeFile, 'a');
+                fprintf(fileID, 'lamda1: %e, lamda2: %e, Results: %s\n', lamda1(i), lamda2(j), mat2str(res));
+                fclose(fileID);
             end
         end
     end
